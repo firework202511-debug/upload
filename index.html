@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>作業通報入口</title>
+  <title>興達發電廠線上申報系統</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet" />
@@ -13,34 +13,22 @@
     :root {
       --bg: #f5f4f0;
       --surface: #ffffff;
-      --border: rgba(0,0,0,0.1);
-      --border-hover: rgba(0,0,0,0.25);
+      --border: rgba(0,0,0,0.09);
+      --border-hover: rgba(0,0,0,0.22);
       --text-primary: #1a1a18;
       --text-secondary: #5f5e5a;
       --text-muted: #9a9994;
-      --icon-blue-bg: #E6F1FB;
-      --icon-blue-fg: #185FA5;
-      --icon-amber-bg: #FAEEDA;
-      --icon-amber-fg: #854F0B;
-      --icon-red-bg: #FCEBEB;
-      --icon-red-fg: #A32D2D;
     }
 
     @media (prefers-color-scheme: dark) {
       :root {
         --bg: #1c1c1a;
-        --surface: #2a2a27;
-        --border: rgba(255,255,255,0.1);
-        --border-hover: rgba(255,255,255,0.25);
+        --surface: #252522;
+        --border: rgba(255,255,255,0.09);
+        --border-hover: rgba(255,255,255,0.28);
         --text-primary: #f0ede6;
         --text-secondary: #b4b2a9;
         --text-muted: #6e6c68;
-        --icon-blue-bg: #0C447C;
-        --icon-blue-fg: #B5D4F4;
-        --icon-amber-bg: #633806;
-        --icon-amber-fg: #FAC775;
-        --icon-red-bg: #791F1F;
-        --icon-red-fg: #F7C1C1;
       }
     }
 
@@ -52,180 +40,186 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 2rem 1rem;
+      padding: 2.5rem 1.25rem;
     }
 
-    .wrap {
-      width: 100%;
-      max-width: 680px;
-    }
+    .wrap { width: 100%; max-width: 680px; }
+
+    .header { text-align: center; margin-bottom: 2.5rem; }
 
     .eyebrow {
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 500;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--text-muted);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.45rem;
     }
 
     h1 {
       font-size: 26px;
       font-weight: 500;
       color: var(--text-primary);
-      margin-bottom: 0.4rem;
-      line-height: 1.3;
+      margin: 0;
     }
 
-    .sub {
-      font-size: 14px;
-      color: var(--text-secondary);
-      margin-bottom: 2rem;
-    }
-
-    .cards {
+    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-      gap: 14px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
     }
 
     .card {
       background: var(--surface);
       border: 0.5px solid var(--border);
-      border-radius: 14px;
-      padding: 1.5rem 1.25rem;
+      border-radius: 24px;
+      padding: 2rem 1.5rem 1.75rem;
       text-decoration: none;
-      display: block;
-      transition: border-color 0.15s, transform 0.1s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: border-color 0.15s, transform 0.13s;
     }
 
     .card:hover {
       border-color: var(--border-hover);
-      transform: translateY(-2px);
+      transform: translateY(-5px);
     }
 
-    .card:active {
-      transform: translateY(0);
-    }
+    .card:active { transform: scale(0.98); }
 
-    .icon-wrap {
-      width: 46px;
-      height: 46px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1rem;
-    }
-
-    .icon-wrap svg { width: 24px; height: 24px; stroke-width: 1.75; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-
-    .icon-blue { background: var(--icon-blue-bg); }
-    .icon-blue svg { stroke: var(--icon-blue-fg); }
-    .icon-amber { background: var(--icon-amber-bg); }
-    .icon-amber svg { stroke: var(--icon-amber-fg); }
-    .icon-red { background: var(--icon-red-bg); }
-    .icon-red svg { stroke: var(--icon-red-fg); }
-
-    .card-label {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 5px;
-    }
-
-    .card-title {
-      font-size: 16px;
-      font-weight: 500;
-      color: var(--text-primary);
-      margin-bottom: 8px;
-      line-height: 1.4;
-    }
-
-    .card-desc {
-      font-size: 13px;
-      color: var(--text-secondary);
-      line-height: 1.7;
+    .illus {
+      width: 150px;
+      height: 150px;
       margin-bottom: 1.1rem;
     }
 
-    .card-arrow {
-      display: flex;
-      align-items: center;
-      gap: 5px;
+    .card-name {
+      font-size: 19px;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin: 0 0 0.35rem;
+    }
+
+    .card-hint {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .footer-row {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .footer-txt {
       font-size: 12px;
       color: var(--text-muted);
     }
-
-    .card-arrow svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-
-    .divider { height: 0.5px; background: var(--border); margin: 2.5rem 0 1.25rem; }
-
-    .footer { font-size: 12px; color: var(--text-muted); text-align: center; }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <p class="eyebrow">興達電廠</p>
-    <h1>安全作業通報入口</h1>
-    <p class="sub">請依作業類型選擇對應系統進行通報</p>
+    <div class="header">
+      <p class="eyebrow">台電興達發電廠</p>
+      <h1>線上申報系統</h1>
+    </div>
 
-    <div class="cards">
+    <div class="grid">
 
-      <a class="card" href="https://tbm-ky.pages.dev/" target="_blank" rel="noopener">
-        <div class="icon-wrap icon-blue">
-          <svg viewBox="0 0 24 24">
-            <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/>
-            <rect x="9" y="3" width="6" height="4" rx="1"/>
-            <path d="M9 12h6M9 16h4"/>
-          </svg>
-        </div>
-        <p class="card-label">工具箱會議及危害預知</p>
-        <p class="card-title">TBM-KY 通報系統</p>
-        <p class="card-desc">填寫工具箱會議通報，上傳作業前檢點表及相關許可證</p>
-        <div class="card-arrow">
-          <span>前往填寫</span>
-          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </div>
-      </a>
-
-      <a class="card" href="https://confined-space.pages.dev/" target="_blank" rel="noopener">
-        <div class="icon-wrap icon-amber">
-          <svg viewBox="0 0 24 24">
-            <path d="M12 9v4M12 17h.01"/>
-            <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
-          </svg>
-        </div>
-        <p class="card-label">局限空間作業</p>
-        <p class="card-title">局限空間作業通報</p>
-        <p class="card-desc">局限空間作業前後通報，上傳許可證與作業後確認文件</p>
-        <div class="card-arrow">
-          <span>前往填寫</span>
-          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </div>
-      </a>
-
+      <!-- 動火 -->
       <a class="card" href="https://fire-management2.pages.dev/" target="_blank" rel="noopener">
-        <div class="icon-wrap icon-red">
-          <svg viewBox="0 0 24 24">
-            <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
-          </svg>
-        </div>
-        <p class="card-label">動火管理</p>
-        <p class="card-title">動火管理系統</p>
-        <p class="card-desc">動火作業前中後通報，記錄氣體偵測、防護設備與結束確認</p>
-        <div class="card-arrow">
-          <span>前往填寫</span>
-          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </div>
+        <svg class="illus" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="動火管理系統圖示">
+          <circle cx="75" cy="75" r="72" fill="#FFF5F5"/>
+          <ellipse cx="75" cy="130" rx="55" ry="10" fill="#F09595" opacity="0.25"/>
+          <path d="M75 118 C55 118 42 105 42 90 C42 75 50 68 55 62 C55 68 59 70 62 68 C60 60 63 50 70 44 C70 52 74 55 77 52 C80 45 86 42 90 46 C88 54 91 60 95 62 C102 68 108 78 108 90 C108 105 95 118 75 118Z" fill="#E24B4A"/>
+          <path d="M58 95 C56 88 59 80 63 76 C62 82 65 86 67 84 C65 78 67 70 72 66 C71 74 74 78 76 76 C74 82 72 90 74 98" fill="#EF9F27" opacity="0.85"/>
+          <path d="M75 44 C73 38 74 32 75 28 C76 32 77 38 75 44Z" fill="#FAC775"/>
+          <path d="M90 46 C91 40 93 35 95 32 C94 36 93 42 90 46Z" fill="#FAC775"/>
+          <path d="M60 62 C58 56 58 50 60 46 C61 50 62 57 60 62Z" fill="#FAC775"/>
+          <ellipse cx="66" cy="85" rx="7" ry="8" fill="white"/>
+          <ellipse cx="84" cy="85" rx="7" ry="8" fill="white"/>
+          <circle cx="67" cy="86" r="4" fill="#2C2C2A"/>
+          <circle cx="85" cy="86" r="4" fill="#2C2C2A"/>
+          <circle cx="69" cy="84" r="1.5" fill="white"/>
+          <circle cx="87" cy="84" r="1.5" fill="white"/>
+          <path d="M60 78 C63 75 69 76 71 78" stroke="#2C2C2A" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+          <path d="M79 78 C81 76 87 75 90 78" stroke="#2C2C2A" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+          <path d="M65 97 C68 101 82 101 85 97" stroke="#2C2C2A" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <path d="M65 97 C65 103 68 105 75 105 C82 105 85 103 85 97" fill="white"/>
+          <line x1="70" y1="97" x2="70" y2="103" stroke="#D3D1C7" stroke-width="1"/>
+          <line x1="75" y1="97" x2="75" y2="104" stroke="#D3D1C7" stroke-width="1"/>
+          <line x1="80" y1="97" x2="80" y2="103" stroke="#D3D1C7" stroke-width="1"/>
+          <path d="M42 90 C36 85 32 78 34 70 C37 76 40 80 44 82" fill="#E24B4A"/>
+          <path d="M108 90 C114 85 118 78 116 70 C113 76 110 80 106 82" fill="#E24B4A"/>
+          <path d="M34 70 C32 65 34 60 37 58 C36 63 38 66 40 64 C39 68 36 70 34 70Z" fill="#EF9F27"/>
+          <path d="M116 70 C118 65 116 60 113 58 C114 63 112 66 110 64 C111 68 114 70 116 70Z" fill="#EF9F27"/>
+          <ellipse cx="75" cy="60" rx="22" ry="7" fill="#FAC775"/>
+          <rect x="58" y="54" width="34" height="8" rx="4" fill="#EF9F27"/>
+          <rect x="63" y="50" width="24" height="8" rx="4" fill="#FAC775"/>
+          <path d="M55 60 C60 63 90 63 95 60" stroke="#BA7517" stroke-width="1" fill="none" stroke-linecap="round"/>
+          <text x="75" y="57" font-size="8" font-weight="700" fill="#854F0B" text-anchor="middle" font-family="sans-serif">T</text>
+          <path d="M30 55 L33 50 L32 55 L37 53 L32 57Z" fill="#EF9F27"/>
+          <path d="M118 48 L120 43 L120 48 L125 46 L120 51Z" fill="#EF9F27"/>
+          <path d="M112 115 L113 111 L114 115 L118 113 L114 118Z" fill="#F09595"/>
+          <path d="M36 115 L37 110 L38 115 L42 113 L38 118Z" fill="#F09595"/>
+        </svg>
+        <p class="card-name">興達動火管理系統</p>
+        <p class="card-hint">點擊前往申報</p>
+      </a>
+
+      <!-- 局限空間 -->
+      <a class="card" href="https://confined-space.pages.dev/" target="_blank" rel="noopener">
+        <svg class="illus" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="局限空間通報系統圖示">
+          <circle cx="75" cy="75" r="72" fill="#FFFBF0"/>
+          <ellipse cx="75" cy="132" rx="48" ry="8" fill="#FAC775" opacity="0.2"/>
+          <ellipse cx="75" cy="115" rx="40" ry="12" fill="#D3D1C7"/>
+          <ellipse cx="75" cy="113" rx="40" ry="12" fill="#B4B2A9"/>
+          <ellipse cx="75" cy="111" rx="40" ry="12" fill="#D3D1C7"/>
+          <ellipse cx="75" cy="109" rx="36" ry="10" fill="#888780"/>
+          <ellipse cx="75" cy="109" rx="30" ry="8" fill="#444441"/>
+          <path d="M45 109 C45 100 60 95 75 95 C90 95 105 100 105 109" stroke="#B4B2A9" stroke-width="2" fill="none"/>
+          <polygon points="75,28 105,75 45,75" fill="#EF9F27" opacity="0.9"/>
+          <polygon points="75,28 105,75 45,75" stroke="#BA7517" stroke-width="2" fill="none" stroke-linejoin="round"/>
+          <rect x="71" y="40" width="8" height="22" rx="4" fill="#854F0B"/>
+          <circle cx="75" cy="68" r="4" fill="#854F0B"/>
+          <rect x="62" y="88" width="26" height="22" rx="5" fill="#185FA5"/>
+          <circle cx="75" cy="82" r="12" fill="#F5C4B3"/>
+          <ellipse cx="75" cy="72" rx="14" ry="5" fill="#E24B4A"/>
+          <rect x="63" y="68" width="24" height="7" rx="3.5" fill="#E24B4A"/>
+          <rect x="67" y="65" width="16" height="7" rx="3.5" fill="#F09595"/>
+          <ellipse cx="70" cy="82" rx="3" ry="3.5" fill="white"/>
+          <ellipse cx="80" cy="82" rx="3" ry="3.5" fill="white"/>
+          <circle cx="70.5" cy="82.5" r="2" fill="#2C2C2A"/>
+          <circle cx="80.5" cy="82.5" r="2" fill="#2C2C2A"/>
+          <circle cx="71" cy="81.5" r="0.8" fill="white"/>
+          <circle cx="81" cy="81.5" r="0.8" fill="white"/>
+          <path d="M67 78 C68.5 76.5 71.5 77 73 78.5" stroke="#2C2C2A" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+          <path d="M77 78.5 C78.5 77 81.5 76.5 83 78" stroke="#2C2C2A" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+          <path d="M71 88 C73 86.5 77 86.5 79 88" stroke="#2C2C2A" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <path d="M85 78 C85 75 87 73 87 71 C87 69 85.5 68 85 68 C84.5 68 83 69 83 71 C83 73 85 75 85 78Z" fill="#85B7EB"/>
+          <rect x="50" y="89" width="13" height="8" rx="4" fill="#185FA5"/>
+          <rect x="87" y="89" width="13" height="8" rx="4" fill="#185FA5"/>
+          <circle cx="48" cy="93" r="5" fill="#EF9F27"/>
+          <circle cx="102" cy="93" r="5" fill="#EF9F27"/>
+          <rect x="66" y="108" width="8" height="10" rx="3" fill="#0C447C"/>
+          <rect x="76" y="108" width="8" height="10" rx="3" fill="#0C447C"/>
+          <rect x="38" y="88" width="10" height="14" rx="2" fill="#444441"/>
+          <rect x="40" y="90" width="6" height="4" rx="1" fill="#378ADD"/>
+          <circle cx="43" cy="98" r="2" fill="#639922"/>
+          <circle cx="46" cy="90" r="1.5" fill="#E24B4A" opacity="0.9"/>
+          <path d="M35 125 L115 125" stroke="#EF9F27" stroke-width="5" stroke-dasharray="8 5" stroke-linecap="round"/>
+        </svg>
+        <p class="card-name">興達局限通報系統</p>
+        <p class="card-hint">點擊前往申報</p>
       </a>
 
     </div>
 
-    <div class="divider"></div>
-    <p class="footer">如有多項作業，請分別至對應系統完成通報</p>
+    <div class="footer-row">
+      <p class="footer-txt">如有多項作業，請分別至對應系統完成申報</p>
+    </div>
   </div>
 </body>
 </html>
